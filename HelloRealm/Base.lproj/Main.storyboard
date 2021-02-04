@@ -93,6 +93,9 @@
                                 <rect key="frame" x="349" y="444" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ADD"/>
+                                <connections>
+                                    <action selector="addCareer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9J1-xg-dH3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

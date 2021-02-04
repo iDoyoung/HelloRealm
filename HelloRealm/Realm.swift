@@ -34,15 +34,15 @@ struct RealmModel {
     }
         
     //MARK: - Update Data
-    func update(_ data: MyData, jobPostion: String, career: List<String>) {
-        do {
-            try realm.write {
-                data.jobPosition = jobPostion
-                data.careers = career
-            }
-        } catch {
-            print("Error: \(error)")
-        }
+       func update(_ data: MyData, jobPostion: String, career: List<String>) {
+           do {
+               try realm.write {
+                   data.jobPosition = jobPostion
+                   data.careers = career
+               }
+           } catch {
+               print("Error: \(error)")
+           }
     }
     
     //MARK: - Delete Data
@@ -65,11 +65,6 @@ struct RealmModel {
     
     //MARK: - 파일 확인
     /* Realm Studio 설치 후*/
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
-        
-        return documentsDirectory
-    }
+   
 
 }

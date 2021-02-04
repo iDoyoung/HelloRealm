@@ -19,13 +19,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resultDatas = try! Realm().objects(MyData.self)
         tableView.dataSource = self
-        }
+    }
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var positionTextField: UITextField!
     @IBOutlet weak var careerTextField: UITextField!
     
+    @IBAction func addCareer(_ sender: UIButton) {
+        if let textFiled = careerTextField.text, !textFiled.isEmpty {
+            let career = textFiled
+            carrers.append(career)
+        }
+    }
     
     
     @IBAction func saveData(_ sender: UIButton) {
@@ -34,7 +41,9 @@ class ViewController: UIViewController {
         newData.jobPosition = positionTextField.text!
         newData.name = nameTextField.text!
         model.create(newData)
+        resultDatas = try! Realm().objects(MyData.self)
         tableView.reloadData()
+        carrers = List<String>()
     }
     
 }
@@ -63,4 +72,5 @@ class Cell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var careerCount: UILabel!
+    
 }
